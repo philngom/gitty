@@ -12,6 +12,6 @@ CREATE TABLE github_users (
 
 CREATE TABLE tweets (
   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  tweet TEXT NOT NULL
-  user BIGINT REFERENCES github_users (id)
+  tweet TEXT NOT NULL,
+  username BIGINT REFERENCES github_users (id)
 );
