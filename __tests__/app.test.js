@@ -3,7 +3,7 @@ const setup = require('../data/setup');
 const request = require('supertest');
 const app = require('../lib/app');
 
-jest.mock('../lib/utils/__mocks__/github');
+jest.mock('../lib/utils/github');
 
 describe('gitty routes', () => {
   beforeEach(() => {
