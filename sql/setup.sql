@@ -5,7 +5,7 @@ DROP TABLE IF EXISTS tweets CASCADE;
 
 CREATE TABLE github_users (
   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  username TEXT NOT NULL,
+  username TEXT NOT NULL UNIQUE,
   email TEXT,
   avatar TEXT
 );
@@ -13,5 +13,5 @@ CREATE TABLE github_users (
 CREATE TABLE tweets (
   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   tweet TEXT NOT NULL,
-  username BIGINT REFERENCES github_users (id)
+  username TEXT REFERENCES github_users (username)
 );
