@@ -4,6 +4,7 @@ const request = require('supertest');
 const app = require('../lib/app');
 
 jest.mock('../lib/utils/github');
+jest.mock('../lib/middleware/authenticate');
 
 describe('gitty routes', () => {
   beforeEach(() => {
