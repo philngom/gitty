@@ -26,8 +26,14 @@ describe('gitty routes', () => {
     const res = await request.agent(app)
       .get('/api/v1/github/login/callback?code=42')
       .redirects(1);
-    // console.log('🚀 ~ file: app.test.js ~ line 27 ~ it ~ res', res);
 
     expect(res.req.path).toEqual('/api/v1/tweets');
+  });
+
+  it('should logout the user', async () => {
+    const req = await request.agent(app)
+      .delete('/api/v1/github');
+
+    expect(req.body.message).toEqual('You have successfully signed out!');
   });
 });
