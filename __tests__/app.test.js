@@ -26,14 +26,8 @@ describe('gitty routes', () => {
     const res = await request.agent(app)
       .get('/api/v1/github/login/callback?code=42')
       .redirects(1);
+    // console.log('🚀 ~ file: app.test.js ~ line 27 ~ it ~ res', res);
 
-    expect(res.body).toEqual({
-      id: expect.any(String),
-      username: 'fake_github_user',
-      email: 'not-real@example.com',
-      avatar: expect.any(String),
-      iat: expect.any(Number),
-      exp: expect.any(Number),
-    });
+    expect(res.req.path).toEqual('/api/v1/tweets');
   });
 });
