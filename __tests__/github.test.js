@@ -22,7 +22,7 @@ describe('gitty routes', () => {
     );
   });
 
-  it('should login and redirect users to /api/v1/tweets/dashboard', async () => {
+  it('should login and redirect users to /api/v1/tweets', async () => {
     const res = await request.agent(app)
       .get('/api/v1/github/login/callback?code=42')
       .redirects(1);
